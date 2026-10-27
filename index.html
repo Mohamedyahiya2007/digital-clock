@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cloud Clock</title>
+    <style>
+        body { background-color: black; color: #00FF00; font-size: 70px; text-align: center; margin-top: 20%; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h2>DevOps Cloud Server</h2>
+    <div id="clock"></div>
+    <script>
+        function updateclock() {
+            var now = new Date();
+            var timeString = String(now.getHours()).padStart(2, '0') + ':' + 
+                             String(now.getMinutes()).padStart(2, '0') + ':' + 
+                             String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = timeString;
+            setTimeout(updateclock, 1000);
+        }
+        updateclock();
+    </script>
+</body>
+</html>
