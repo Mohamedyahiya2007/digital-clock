@@ -1,0 +1,16 @@
+name: DevOps CI/CD Pipeline
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Code-a Download panna
+        uses: actions/checkout@v3
+      - name: Pazhaiya Container-a Delete panna
+        run: sudo docker rm -f my-clock-container || true
+      - name: Pudhu Docker Image Build panna
+        run: sudo docker build -t my-clock-image .
+      - name: Pudhu Container-a Run panna
+        run: sudo docker run -d -p 80:80 --name my-clock-container my-clock-image
